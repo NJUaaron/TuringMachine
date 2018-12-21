@@ -180,7 +180,8 @@ void TM::run(string input_str){
         con_cout << "==================== ERR ====================" << endl;
         con_cout << "The input " << ID.tape << " is illegal" << endl;
         con_cout << "==================== END ====================" << endl;
-        exit(-1);
+        ID.tape = string("Error");
+        return;
     }
 
     //run
@@ -240,9 +241,10 @@ void TM::run(string input_str){
                 goto END;
             }
         }
-        cerr << "dead lock." << endl;
-        exit(-1);
-END:
+        //cerr << "dead lock." << endl;
+        //exit(-1);
+        return;
+    END:
         printID();
     } 
 }
