@@ -2,12 +2,17 @@
 using namespace std;
 
 int main(int argc, char** argv){
-    if (argc != 3){
-        printf("Two parameters needed.\n");
+    if (argc > 2){
+        printf("Too many parameters.\n");
         return 1;
     }
-    string tmFile = string(argv[1]);
-    string inputFile = string(argv[2]);
+    else if (argc < 2){
+        printf("A parameter is needed to assign test file.\n");
+        return 1;
+    }
+    string path = string(argv[1]);
+    string tmFile = path + "//test.tm";
+    string inputFile = path + "//input.txt";
 
     TM tm;
     tm.readTM(tmFile);
@@ -19,13 +24,13 @@ int main(int argc, char** argv){
         exit(-1);
     }
     //open console file
-    con_cout = ofstream("console.txt", ios::out);
+    con_cout = ofstream(path + "//console.txt", ios::out);
     if(!con_cout){
         cerr << "cannot genetare console file." << endl;
         exit(-1);
     }
     //open result file
-    res_cout = ofstream("result.txt", ios::out);
+    res_cout = ofstream(path + "//result.txt", ios::out);
     if(!res_cout){
         cerr << "cannot generate result file." << endl;
         exit(-1);

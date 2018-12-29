@@ -172,15 +172,32 @@
 
 ### 示例
 
-完整的图灵机程序示例参见 palindrome_detector.tm。
+完整的图灵机程序示例参见 *[palindrome_detector.tm](./palindrome_detector.tm )*。
 
 ## 3. 运行与测试
 
 1. 运行方案：
     - 输入为两个文件。第一个文件为实现的图灵机程序文件 `xxx.tm`，第二个为测试文件 `input.txt`。测试文件中每一行包含一个用于测试的输入字符串。
     - 输出也为两个文件。第一个文件是运行时信息输出文件 `console.txt`，具体输出要求见 ***[任务二](#任务二图灵机模拟器 )*** 。第二个文件为结果文件 `result.txt`。结果文件中的每一行对应着输入文件中的每一行输入字符串对应的输出结果。
-3. 输入make命令生成可执行文件turing后，可以运行以下命令：
+2. 输入make命令生成可执行文件turing后，可以运行以下命令：
     ```
-    ./turing xxx.tm input.txt
+    ./turing case-directory
     ```
-    该命令运行后，会在当前目录下生成两个文件 `console.txt` 和 `result.txt`。
+    该命令运行后，会在 `case-directory` 目录下生成两个文件 `console.txt` 和 `result.txt`。
+    > *注*：**`case-directory` 中只包含目录名，不包含路径分隔符，如 `case1`**；
+3. 整体的文件结构如下所示：
+    ```
+    |—— code
+        |—— turing
+        |—— case1
+            |—— test.tm
+            |—— input.txt
+        |—— case2
+            |—— test.tm
+            |—— input.txt
+        |—— Makefile
+        |—— src
+            |—— main.cpp
+            |—— tm.cpp
+            |—— tm.h
+    ```
